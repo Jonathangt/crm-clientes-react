@@ -29,7 +29,7 @@ const Formulario = ({ cliente, loading }) => {
             let resp = null;
 
             if ( cliente.id ) {
-                const url = `http://localhost:4000/api-clientes/${cliente.id}`;
+                const url = `${import.meta.env.VITE_API_URL}/${cliente.id}`;
                 resp = await fetch( url, {
                     method: 'PUT',
                     body: JSON.stringify(val),
@@ -38,7 +38,7 @@ const Formulario = ({ cliente, loading }) => {
                     }
                 });
             }else{
-                const url = 'http://localhost:4000/api-clientes';
+                const url = import.meta.env.VITE_API_URL;
 
                 resp = await fetch( url, {
                     method: 'POST',

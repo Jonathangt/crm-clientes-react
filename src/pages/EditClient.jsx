@@ -12,7 +12,7 @@ const EditClient = () => {
     useEffect( () => {
         const getClientApiById = async () =>{
             try {
-                const url = `http://localhost:4000/api-clientes/${id}`;
+                const url = `${import.meta.env.VITE_API_URL}/${id}`;
                 const resp = await fetch( url );
                 const data = await resp.json();
                 setCliente(data);

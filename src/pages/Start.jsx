@@ -11,7 +11,7 @@ const Start = () => {
 
         const getClientApi = async () =>{
             try {
-                const url = 'http://localhost:4000/api-clientes';
+                const url = import.meta.env.VITE_API_URL
                 const resp = await fetch( url );
                 const data = await resp.json();
                 setClientes(data);
@@ -27,7 +27,7 @@ const Start = () => {
         const confirmar = confirm('Estas seguro de eliminar este cliente?');
         if( confirmar ){
             try {
-                const url = `http://localhost:4000/api-clientes/${id}`;
+                const url = `${import.meta.env.VITE_API_URL}/${id}`;
                 const resp = await fetch( url, {
                     method: 'DELETE'
                 });
